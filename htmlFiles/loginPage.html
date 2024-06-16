@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">  
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="..\cssSheets\loginPageStyle.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body background="..\photos\download (1).jpeg">
+   <div id="Form">
+        <img  id= "logoImg" src="..\photos\Premium Vector _ Spoon fork and plate vector icon symbol illustration restaurant logo design.jpeg" alt="Chef's Work Logo">
+        <h1>Welcome Back</h1>
+        <h2>Please fill in your details</h2>
+          <form action="..\phpFiles\login.php" method="POST">
+            <label for="email">Email:</label>
+            <input type="email" name="email" placeholder="Your email" required>
+            <label for="password">Password:</label>
+            <input type="password" name="password" placeholder="Your password" required>
+            <div id="rememberMe">
+                <label for="rememberUser">Remember me</label>
+                <input type="checkbox" name="rememberUser" value="No">
+            </div>
+            <input type="submit" id="SignIn" value="Sign in">
+            <input type="submit" value="Sign in with Google" id="googleSignIn">
+        </form>
+        <h4>Don't have an account?<a href="registerPage.html">Sign up</a></h4>
+    </div>
+</body>
+</html>
