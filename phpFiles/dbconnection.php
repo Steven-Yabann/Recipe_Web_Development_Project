@@ -1,18 +1,17 @@
 <?php
 // Database configuration
-$serverName = "localhost:3307";
+$server = "mysql:host=localhost:3307;dbname=recipeDatabase";
 $dbUserName = "root";
 $dbPassword = "";
-$dbName = "recipeDatabase";
+//$dbName = "recipeDatabase";
 
 // Attempt to connect to the database
 try {
-    $pdo = new PDO("mysql:host=$serverName;dbname=$dbName", $dbUserName, $dbPassword, array(
-        PDO::ATTR_PERSISTENT => true
+    $pdo = new PDO($server, $dbUserName, $dbPassword, array(
+        PDO::ATTR_PERSISTENT => true,
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING
     ));
     
-    // Set the PDO error mode to exception
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
     // Display error message if connection fails
     die("Error: Could not connect to the database. " . $e->getMessage());
