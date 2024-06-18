@@ -1,3 +1,11 @@
+<?php
+    require "..\phpFiles\dbconnection.php";
+    $sql = "SELECT * FROM usercategory";
+    $stmt = $pdo-> prepare($sql);
+    $stmt -> execute();
+    
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,8 +31,17 @@
             <input type="email" name="email" placeholder="Your email" required>
             <label for="userCategory">Category</label>
             <select name="userCategory" id="userCategory">
-                <option value="2">Client</option>
-                <option value="3">Recipe Owner</option>
+                <?php 
+                if ($stmt-> rowCount() > 0){
+                    $data = $stmt -> fetchAll(PDO::FETCH_ASSOC);
+                    foreach($data as $userCategory){
+                        echo '<option value="' . htmlspecialchars($userCategory['ID']) . '">' . htmlspecialchars($userCategory['userCategory']) . '</option>';
+                    }
+                }
+                else{
+                    echo "No data is found";
+                }
+                ?>
             </select>
             <label for="password">Password:</label>
             <input type="password" name="password" placeholder="Your password" required>
