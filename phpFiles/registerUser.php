@@ -7,6 +7,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $userName = $_POST["userName"];
     $firstName = $_POST["firstName"];
     $lastName = $_POST["lastName"];
+    $userCategory = $_POST["userCategory"];
     $email = $_POST["email"];
     $password = $_POST["password"];
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
@@ -27,9 +28,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $name = $checkstmt->fetch(PDO::FETCH_ASSOC);
 
             if (!$name){
-                $sql = "INSERT INTO users (username, firstName, lastName, email, password, profilePicture) VALUES (?, ?, ?, ?, ?, ?)";
+                $sql = "INSERT INTO users (username, firstName, lastName, email, userCategory, password, profilePicture) VALUES (?, ?, ?, ?, ?, ?, ?)";
                 $stmt = $pdo-> prepare($sql);
-                $stmt-> execute([$userName, $firstName, $lastName, $email, $hashedPassword, $targetFilePath]);
+                $stmt-> execute([$userName, $firstName, $lastName, $email, $userCategory, $hashedPassword, $targetFilePath]);
                 //Confirm if insertion was succesfull
                 if($stmt-> rowCount() > 0){
                     echo "User registered succesfully";
