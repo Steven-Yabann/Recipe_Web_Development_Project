@@ -35,7 +35,9 @@
                 if ($stmt-> rowCount() > 0){
                     $data = $stmt -> fetchAll(PDO::FETCH_ASSOC);
                     foreach($data as $userCategory){
-                        echo '<option value="' . htmlspecialchars($userCategory['ID']) . '">' . htmlspecialchars($userCategory['userCategory']) . '</option>';
+                        if($userCategory["userCategory"] != "Admin"){
+                            echo '<option value="' . htmlspecialchars($userCategory['ID']) . '">' . htmlspecialchars($userCategory['userCategory']) . '</option>';
+                        }
                     }
                 }
                 else{
