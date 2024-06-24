@@ -46,22 +46,5 @@
     }
     ?>
     </table>
-    <form action=""></form>
-    <select name="usernameSearch" id="usernameSearch">
-         <?php 
-        require 'userConn.php';
-        if ($stmt -> rowCount() > 0){
-            $data = $stmt -> fetchAll(PDO::FETCH_ASSOC);
-            foreach($data as $usernameSearch){
-                 echo '<option value="' .htmlspecialchars($usernameSearch["userId"]). '">' . htmlspecialchars($usernameSearch["username"]).'</option>';
-                }
-            }
-        else{
-            echo'No data found';
-        }
-        ?>
-
-    </select>
-    <button>Edit</button>
 </body>
 </html>
