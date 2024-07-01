@@ -1,58 +1,56 @@
-
-
-body{
+body {
     background-color: #faf9e4;
     font-family: Arial, Helvetica, sans-serif;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-#Form{
-    width: 500px;
-    height: 800px;
-    margin: 50px auto;
+#Form, #categoryForm {
+    margin: auto 25%;
+    margin-top: 0px;
     padding: 10%;
     padding-top: 25px;
     text-align: center;
     border-radius: 15px;
     background-color: #2c5c4f;
     color: #ffffff;
+    width: auto; 
+    height: auto;
 }
 
-#categoryForm{
-    width: 500px;
-    height: 300px;
-    margin: 50px auto;
-    padding: 10%;
-    text-align: center;
-    border-radius: 15px;
-    background-color: #2c5c4f;
-    color: #ffffff;
-}
-
-
-#logoImg{
+#logoImg {
     margin-top: 0px;
     width: 30%;
     border-radius: 5px;
 }
 
-#loginForm h2{
+#loginForm h2 {
     text-align: left;
 }
 
-form{
-    width: 500px;
-    height: 300px;
-    /* justify-content: center; */
+form {
+    width: 100%; 
+    height: auto;
+    /* Center the form elements */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-label{
+label {
     display: block;
     text-align: left;
     margin-bottom: 5px;
-    
+    width: 100%;
 }
 
-input[type="email"], input[type="password"], input[type="submit"], input[type="text"], input[type="file"], textarea, select{
+input[type="email"], 
+input[type="password"], 
+input[type="submit"], 
+input[type="text"], 
+input[type="file"], 
+textarea, 
+select {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
@@ -61,8 +59,9 @@ input[type="email"], input[type="password"], input[type="submit"], input[type="t
     box-sizing: border-box;
 }
 
-#rememberMe{
+#rememberMe {
     display: flex;
+    width: 100%;
 }
 
 input[type="submit"] {
@@ -73,13 +72,12 @@ input[type="submit"] {
     cursor: pointer;
 }
 
-input[type="submit"]:hover{
+input[type="submit"]:hover {
     background-color: #45a049;
 }
 
-a{
+a {
     color: #688b2e;
     text-decoration: none;
-
     text-decoration: underline;
 }
