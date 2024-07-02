@@ -34,12 +34,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 //Confirm if insertion was succesfull
                 if($stmt-> rowCount() > 0){
                     $loginUsername = $userName;
-                    $userCategory = $userCategory;
+                    $userCat = $userCategory;
                     $userPfp = $targetFilePath;
                     session_start();
 
                     $_SESSION['username'] = $loginUsername;
-                    $_SESSION['userCategory'] = $userCategory;
+                    $_SESSION['userCategory'] = $userCat;
                     $_SESSION['userpfp'] = $userPfp;
                     
                     header("Location: ..\htmlFiles\index.php");

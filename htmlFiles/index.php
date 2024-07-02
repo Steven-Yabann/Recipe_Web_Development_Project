@@ -45,7 +45,7 @@
                 } 
                 ?>
                 <?php if($userPfp){
-                    echo "<img id='NavImg' src='..\phpFiles\\$userPfp' alt=''>";
+                    echo "<img id='NavImg' src='..\phpFiles\\$userPfp' alt='Profile Picture'>";
                 }
                 ?> 
                 

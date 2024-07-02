@@ -18,8 +18,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $loginUsername = $user['username'];
         $userCategory = $user['userCategory'];
         $userPfp = $user['profilePicture'];
+        
+        //start a session
         session_start();
-
         $_SESSION['username'] = $loginUsername;
         $_SESSION['userCategory'] = $userCategory;
         $_SESSION['userpfp'] = $userPfp;
@@ -28,7 +29,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         // Login failed
         echo "Invalid email or password. Please try again.";
-        //header("Location: ..\htmlFiles\registerPage.html");
     }
 } else {
     // Redirect back to the login page if accessed directly

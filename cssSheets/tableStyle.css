@@ -22,17 +22,17 @@ table {
     background-color: #2c5c4f;
     color: white;
     border: 1px solid black;
-    border-collapse: separate; /* Use separate borders to apply border-radius */
-    border-spacing: 0; /* Remove default spacing between cells */
+    border-collapse: separate;
+    border-spacing: 0; 
     border-radius: 10px;
-    overflow: hidden; /* Ensure the border-radius is applied */
+    overflow: hidden; 
 }
 
 th, td {
     background-color: #2c5c4f;
     color: white;
-    border: 1px solid black;  /* Fixed border property */
-    border-collapse: collapse; /* Ensure borders are combined */
+    border: 1px solid black;  
+    border-collapse: collapse; 
     padding: 15px;
 }
 
