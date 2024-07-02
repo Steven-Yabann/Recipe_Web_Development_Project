@@ -56,7 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
 } else {
     // Redirect back to the add recipe form if accessed directly
-    header("Location: add_recipe_form.html");
+    header("Location: ..\htmlFiles\index.php");
     exit;
 }
 ?>

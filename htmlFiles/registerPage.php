@@ -11,7 +11,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="..\cssSheets\loginPageStyle.css">
+    <link rel="stylesheet" href="..\cssSheets\formDetails.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <title>Register user</title>
 </head>
@@ -51,7 +51,7 @@
             <input type="file" name="profilePicture" id="profilePicture" accept="image/*">
             <input type="submit" id="SignIn" value="Sign up">
             <input type="submit" value="Sign in with Google" id="googleSignIn">
-            <h4>Already have an account?<a href="loginPage.html">Sign in</a></h4>
+            <h4>Already have an account?<a class="registration" href="loginPage.html">Sign in</a></h4>
          </form>
      </div>
  </body>

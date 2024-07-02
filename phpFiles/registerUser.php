@@ -33,8 +33,16 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 $stmt-> execute([$userName, $firstName, $lastName, $email, $userCategory, $hashedPassword, $targetFilePath]);
                 //Confirm if insertion was succesfull
                 if($stmt-> rowCount() > 0){
-                    echo "User registered succesfully";
-                    header("Location: ..\htmlFiles\index.html");
+                    $loginUsername = $userName;
+                    $userCategory = $userCategory;
+                    $userPfp = $targetFilePath;
+                    session_start();
+
+                    $_SESSION['username'] = $loginUsername;
+                    $_SESSION['userCategory'] = $userCategory;
+                    $_SESSION['userpfp'] = $userPfp;
+                    
+                    header("Location: ..\htmlFiles\index.php");
                 }else{
                     echo "Error: Failed to register user!";
                 }
@@ -50,6 +58,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         echo"Error: No file has been uploaded!";
     }
 }else{
-    header("Location: registerPage.html");
+    header("Location: registerPage.php");
     exit;
 }

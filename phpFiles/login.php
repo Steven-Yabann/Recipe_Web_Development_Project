@@ -15,9 +15,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Check if user exists and password is correct
     if ($user && password_verify($password, $user['password'])) {
-        // Login successful
-        echo "Login successful. Welcome, " . $user['username'] . "!";
-        header("Location: ..\htmlFiles\index.html");
+        $loginUsername = $user['username'];
+        $userCategory = $user['userCategory'];
+        $userPfp = $user['profilePicture'];
+        session_start();
+
+        $_SESSION['username'] = $loginUsername;
+        $_SESSION['userCategory'] = $userCategory;
+        $_SESSION['userpfp'] = $userPfp;
+        header("Location: ..\htmlFiles\index.php");
+        
     } else {
         // Login failed
         echo "Invalid email or password. Please try again.";
@@ -25,6 +32,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 } else {
     // Redirect back to the login page if accessed directly
-    header("Location: ..\htmlFiles\index.html");
+    header("Location: ..\htmlFiles\login.php");
     exit;
 }

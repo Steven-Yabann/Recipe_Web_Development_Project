@@ -28,12 +28,13 @@ body {
     justify-content: space-between;
     align-items: center;
     max-width: 1200px;
+    height: auto;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 10px;
     color: white;
 }
 
-#logoImg {
+#NavImg {
     margin: 10px;
     width: 60px;
     border-radius: 50%;
@@ -50,6 +51,7 @@ body {
 .navLinks {
     display: flex;
     gap: 20px;
+    align-items: center;
 }
 
 .navLinks li {
@@ -59,7 +61,7 @@ body {
 .navLinks a {
     color: white;
     text-decoration: none;
-    letter-spacing: 2px;
+    letter-spacing: 0.5px;
     font-weight: bold;
     font-size: 16px;
     padding: 10px 15px;

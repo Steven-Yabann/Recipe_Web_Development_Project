@@ -1,3 +1,10 @@
+<?php 
+    session_start();
+    $userName = isset($_SESSION['username']) ? $_SESSION['username'] : null;
+    $userCategory = isset($_SESSION['userCategory']) ? $_SESSION['userCategory'] : null;
+    $userPfp = isset($_SESSION['userpfp']) ? $_SESSION['userpfp'] : null;
+    ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,15 +17,38 @@
     <section id="home" class="navBarSection">
         <div class="navBar">
             <a href="index.html">
-                <img id="logoImg" src="..\photos\Premium Vector _ Spoon fork and plate vector icon symbol illustration restaurant logo design.jpeg" alt="Chef's Work Logo">
+                <img id="NavImg" src="..\photos\Premium Vector _ Spoon fork and plate vector icon symbol illustration restaurant logo design.jpeg" alt="Chef's Work Logo">
             </a>
             <h4 class="heading">Chef's Work</h4>
             <ul class="navLinks">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#recipes">Recipes</a></li>
                 <li><a href="#aboutMe">About</a></li>
-                <li><a href="recipeSubmission.php">Add recipe</a></li>
-                <li><a href="registerPage.php">Sign Up</a></li>
+                <?php if(!$userName){
+                    echo "<li><a href='loginPage.html'>Login</a></li>";
+                }
+                ?>
+                <?php if($userCategory == 1){
+                    echo "<li><a href='addCategory.html'>Add Category</a></li>";
+                }
+                ?>
+                <?php if($userCategory == 1){
+                    echo "<li><a href='..\CRUD_Operations\dispUsers.php'>Users table</a></li>";
+                }
+                ?>  
+                <?php if($userCategory == 3){
+                    echo "<li><a href='recipeSubmission.php'>Add recipe</a></li>";
+                }
+                ?> 
+                <?php if($userName){
+                    echo "<a href='userProfilePage.php'><li class='userName'>$userName</li></a>";
+                } 
+                ?>
+                <?php if($userPfp){
+                    echo "<img id='NavImg' src='..\phpFiles\\$userPfp' alt=''>";
+                }
+                ?> 
+                
             </ul>
         </div>
     </section>
