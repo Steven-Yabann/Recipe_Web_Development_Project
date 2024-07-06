@@ -1,11 +1,5 @@
 <?php
-require "../phpFiles/dbconnection.php";
-
-$sql = "SELECT * FROM categories";
-$stmt = $pdo -> prepare($sql);
-$stmt -> execute();
-
-
+require "../phpFiles/categoryConn.php";
 ?>
 
 <!DOCTYPE html>
