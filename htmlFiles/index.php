@@ -1,9 +1,6 @@
 <?php 
-    session_start();
-    $userName = isset($_SESSION['username']) ? $_SESSION['username'] : null;
-    $userCategory = isset($_SESSION['userCategory']) ? $_SESSION['userCategory'] : null;
-    $userPfp = isset($_SESSION['userpfp']) ? $_SESSION['userpfp'] : null;
-    ?>
+   // session_start();
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,48 +8,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="..\cssSheets\mainIndex.css">
+    <link rel="stylesheet" href="..\cssSheets\headerSection.css">
+    <link rel="stylesheet" href="..\cssSheets\footerSection.css">
     <title>Recipe Page</title>
 </head>
 <body>
-    <section id="home" class="navBarSection">
-        <div class="navBar">
-            <a href="index.html">
-                <img id="NavImg" src="..\photos\Premium Vector _ Spoon fork and plate vector icon symbol illustration restaurant logo design.jpeg" alt="Chef's Work Logo">
-            </a>
-            <h4 class="heading">Chef's Work</h4>
-            <ul class="navLinks">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#recipes">Recipes</a></li>
-                <li><a href="#aboutMe">About</a></li>
-                <?php if(!$userName){
-                    echo "<li><a href='loginPage.html'>Login</a></li>";
-                }
-                ?>
-                <?php if($userCategory == 1){
-                    echo "<li><a href='addCategory.html'>Add Category</a></li>";
-                }
-                ?>
-                <?php if($userCategory == 1){
-                    echo "<li><a href='..\CRUD_Operations\dispUsers.php'>Users table</a></li>";
-                }
-                ?>  
-                <?php if($userCategory == 3){
-                    echo "<li><a href='recipeSubmission.php'>Add recipe</a></li>";
-                }
-                ?> 
-                <?php if($userName){
-                    echo "<a href='userProfilePage.php'><li class='userName'>$userName</li></a>";
-                } 
-                ?>
-                <?php if($userPfp){
-                    echo "<img id='NavImg' src='..\phpFiles\\$userPfp' alt='Profile Picture'>";
-                }
-                ?> 
-                
-            </ul>
-        </div>
-    </section>
-    
+    <?php include 'headerSection.php';?>
 
     <section class="headlineSector">
         <div id="headline">
@@ -169,37 +130,6 @@
         </div>
     </section>
 
-    <section class="footerSection">
-        <div class="footerContainer">
-            <div class="socialMedia">
-                <h3>Social Media Links</h3>
-                <ol>    
-                    <li><a href="#" class="socialLink">Facebook</a></li>
-                    <li><a href="#" class="socialLink">Twitter</a></li>
-                    <li><a href="#" class="socialLink">Instagram</a></li>
-                    <li>&hearts;</li>
-                </ol>
-            </div>
-            <div class="siteLinks">
-                <h3>Visit the pages</h3>
-                <ol>
-                    <li><a href="#home" class="siteLink">Home</a></li>
-                    <li><a href="#recipes" class="siteLink">Recipes</a></li>
-                    <li><a href="#aboutMe" class="siteLink">About</a></li>
-                </ol>
-            </div>
-            <div class="newsletterForm">
-                <h3>Subscribe to our newsletter:</h3>
-                <form>
-                    <input type="email" placeholder="Enter your email">
-                    <input type="submit" value="Subscribe">
-                </form>
-            </div>
-        </div>
-    </section>
-    <table>
-        <colgroup></colgroup>
-    </table>
-    
+    <?php include 'footerSection.php';  ?>    
 </body>
 </html>

@@ -1,5 +1,7 @@
 <?php
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}   
 $userName = isset($_SESSION['username']) ? $_SESSION['username'] : null;
 
 include "../phpFiles/dbconnection.php";
@@ -16,8 +18,11 @@ $user = $stmt->fetch(PDO::FETCH_ASSOC);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Details</title>
     <link rel="stylesheet" href="../cssSheets/profileDetails.css">
+    <link rel="stylesheet" href="..\cssSheets\headerSection.css">
+    <link rel="stylesheet" href="..\cssSheets\footerSection.css">
 </head>
 <body>
+    <?php include 'headerSection.php';?>
     <div id="profileContainer">
         <h1>User Details</h1>
         <?php if ($user['profilePicture']) {
@@ -35,5 +40,6 @@ $user = $stmt->fetch(PDO::FETCH_ASSOC);
         <a href="index.php">Back to Home</a>
         <a href="..\phpFiles\logout.php">Sign Out</a>
     </div>
+    <?php include 'footerSection.php';  ?>
 </body>
 </html>
