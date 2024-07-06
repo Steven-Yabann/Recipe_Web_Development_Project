@@ -5,8 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DisplayUsers</title>
     <link rel="stylesheet" href="..\cssSheets\tableStyle.css">
+    <link rel="stylesheet" href="..\cssSheets\headerSection.css">
+    <link rel="stylesheet" href="..\cssSheets\footerSection.css">
 </head>
 <body>
+    <?php include 'headerSection.php';?>
     <div id="mainDiv"> 
         <h2>Data from Database</h2>
         <table>
@@ -17,7 +20,7 @@
                 <th>Last name</th>
             </tr>
             <?php
-        require 'userConn.php';
+        require '../phpFiles/userConn.php';
         if ($stmt->rowCount() > 0){
             $data = $stmt-> fetchAll(PDO::FETCH_ASSOC);
             //print_r($data);
@@ -39,5 +42,6 @@
             <button>Edit Profiles</button>
         </a>
     </div>
+    <?php include 'footerSection.php';?>
 </body>
 </html>
