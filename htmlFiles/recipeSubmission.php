@@ -1,33 +1,11 @@
 <?php
-$serverName = "localhost:3307";
-$dbUserName = "root";
-$dbPassword = "";
-$dbName = "recipeDatabase";
+require "../phpFiles/dbconnection.php";
 
-// Create connection
-$conn = new mysqli($serverName, $dbUserName, $dbPassword, $dbName);
+$sql = "SELECT * FROM categories";
+$stmt = $pdo -> prepare($sql);
+$stmt -> execute();
 
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
 
-// Fetch categories from the database
-$sql = "SELECT categoryName FROM categories";
-$result = $conn->query($sql);
-$categories = [];
-
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        $categories[] = $row;
-    }
-} 
-else {
-    $categories = null;
-}
-
-// Close the database connection
-$conn->close();
 ?>
 
 <!DOCTYPE html>
@@ -65,7 +43,9 @@ $conn->close();
             <label for="category">Category:</label>
             <select id="category" name="category">
                 <?php
-                if ($categories) {
+                if ($stmt -> rowCount() > 0) {
+                    $categories = $stmt -> fetchAll(PDO::FETCH_ASSOC);
+                    print_r($categories);
                     foreach ($categories as $category) {
                         echo '<option value="' . htmlspecialchars($category['categoryName']) . '">' . htmlspecialchars($category['categoryName']) . '</option>';
                     }
