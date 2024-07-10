@@ -139,6 +139,16 @@ input[type=submit] :hover{
     margin-bottom: 20px;
 }
 
+.cardLink {
+    text-decoration: none;
+    color: inherit;
+}
+
+.card001:hover {
+    transform: scale(1.05);
+    transition: transform 0.2s;
+}
+
 .card001 {
     background-color: white;
     border: 1px solid #ccc;
@@ -147,10 +157,6 @@ input[type=submit] :hover{
     overflow: hidden;
     width: 300px;
     transition: transform 0.3s;
-}
-
-.card001:hover {
-    transform: translateY(-10px);
 }
 
 .cardImg001 {

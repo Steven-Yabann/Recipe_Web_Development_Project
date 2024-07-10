@@ -44,29 +44,29 @@
     </section>
     
     <section id="recipes" class="foodCards">
-    <h1 class="recipeHeader">Top Recipes of the Day!</h1>
-    <div class="cardRow">   
-        <?php
-            require '../phpFiles/recipeConn.php';
-            if ($recipesData->rowCount() > 0){
-                $recipes = $recipesData->fetchAll(PDO::FETCH_ASSOC);
-                foreach($recipes as $recipe){
-                    $recipePfp = $recipe['recipeImage'];
-                    $recipeName = $recipe['recipeName'];
-                    $recipeId = $recipe['recipeId']; // Add recipe ID to create a unique link
-                    echo "<a href='recipeDetail.php?id=".$recipeId."' class='cardLink'>"; // Wrap the card in a link
-                    echo "<div class=\"card001\">";
-                        echo "<img class=\"cardImg001\" src='..\phpFiles\\". $recipePfp. "' alt='".$recipeName."'>";
-                        echo "<div class=\"container001\">";
-                            echo "<h4>".$recipeName."</h4>";
+        <h1 class="recipeHeader">Top Recipes of the Day!</h1>
+        <div class="cardRow">   
+            <?php
+                require '../phpFiles/recipeConn.php';
+                if ($recipesData->rowCount() > 0){
+                    $recipes = $recipesData->fetchAll(PDO::FETCH_ASSOC);
+                    foreach($recipes as $recipe){
+                        $recipePfp = $recipe['recipeImage'];
+                        $recipeName = $recipe['recipeName'];
+                        $recipeId = $recipe['recipeId']; // Add recipe ID to create a unique link
+                        echo "<a href='recipeDetail.php?id=".$recipeId."' class='cardLink'>"; // Wrap the card in a link
+                        echo "<div class=\"card001\">";
+                            echo "<img class=\"cardImg001\" src='..\phpFiles\\". $recipePfp. "' alt='".$recipeName."'>";
+                            echo "<div class=\"container001\">";
+                                echo "<h4>".$recipeName."</h4>";
+                            echo "</div>";
                         echo "</div>";
-                    echo "</div>";
-                    echo "</a>";
+                        echo "</a>";
+                    }
                 }
-            }
-        ?>  
-    </div>
-</section>
+            ?>  
+        </div>
+    </section>
 
 
     <section class="custReviewSect">
