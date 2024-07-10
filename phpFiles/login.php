@@ -18,12 +18,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $loginUsername = $user['username'];
         $userCategory = $user['userCategory'];
         $userPfp = $user['profilePicture'];
+        $userID = $user['userId'];
         
         //start a session
         session_start();
         $_SESSION['username'] = $loginUsername;
         $_SESSION['userCategory'] = $userCategory;
         $_SESSION['userpfp'] = $userPfp;
+        $_SESSION['userID'] = $userID;
         header("Location: ..\htmlFiles\index.php");
         
     } else {
