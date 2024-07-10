@@ -3,8 +3,8 @@ require '../phpFiles/dbconnection.php';
 
 if (isset($_GET['id'])) {
     $recipeId = $_GET['id'];
-    $query = $pdo->prepare('SELECT * FROM recipes WHERE recipeId = :recipeId');
-    $query->execute(['recipeId' => $recipeId]);
+    $query = $pdo->prepare('SELECT * FROM recipes WHERE recipeId = ?');
+    $query->execute([$recipeId]);
     $recipe = $query->fetch(PDO::FETCH_ASSOC);
 
     if ($recipe) {

@@ -9,7 +9,6 @@ if (session_status() == PHP_SESSION_NONE) {
 if (isset($_SESSION['username'])) {
     $userName = $_SESSION['username'];
 } else {
-    // Redirect to login if userID is not set
     header("Location: ../htmlFiles/login.php");
     exit;
 }
@@ -18,13 +17,11 @@ if (isset($_SESSION['username'])) {
 if (isset($_GET['id'])) {
     $recipeId = $_GET['id'];
     
-    // Query to fetch the recipe details
     $query = $pdo->prepare('SELECT * FROM recipes WHERE recipeId = ? AND recipeOwner = ?');
     $query->execute([$recipeId, $userName]);
     $recipe = $query->fetch(PDO::FETCH_ASSOC);
 
     if (!$recipe) {
-        // Recipe not found or user does not have permission
         echo "Recipe not found or you don't have permission to edit this recipe.";
         exit;
     }
@@ -32,30 +29,8 @@ if (isset($_GET['id'])) {
     echo "No recipe ID provided.";
     exit;
 }
-
-// Handle form submission for updating the recipe
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Retrieve and sanitize form data
-    $recipeName = htmlspecialchars($_POST['recipeName']);
-    $categoryName = htmlspecialchars($_POST['categoryName']);
-    $ingredients = htmlspecialchars($_POST['ingredients']);
-    $cookingSteps = htmlspecialchars($_POST['cookingSteps']);
-
-    // Update the recipe in the database
-    $updateQuery = $pdo->prepare('UPDATE recipes SET recipeName = :recipeName, categoryName = :categoryName, ingredients = :ingredients, cookingSteps = :cookingSteps WHERE recipeId = :recipeId');
-    $updateQuery->execute([
-        'recipeName' => $recipeName,
-        'categoryName' => $categoryName,
-        'ingredients' => $ingredients,
-        'cookingSteps' => $cookingSteps,
-        'recipeId' => $recipeId
-    ]);
-
-    // Redirect to view recipe page after update
-    header("Location: viewRecipe.php?id=$recipeId");
-    exit;
-}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -69,7 +44,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <div class="container">
         <h1>Edit Recipe: <?php echo htmlspecialchars($recipe['recipeName']); ?></h1>
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) . "?id=$recipeId"; ?>" method="POST" id="editForm">
+        <form action="../phpFiles/updateRecipe.php" method="POST" id="editForm">
+            <input type="hidden" name="recipeId" value="<?php echo htmlspecialchars($recipe['recipeId']); ?>">
+            
             <label for="recipeName">Recipe Name:</label>
             <input type="text" id="recipeName" name="recipeName" value="<?php echo htmlspecialchars($recipe['recipeName']); ?>"><br><br>
 

@@ -53,8 +53,8 @@
                     foreach($recipes as $recipe){
                         $recipePfp = $recipe['recipeImage'];
                         $recipeName = $recipe['recipeName'];
-                        $recipeId = $recipe['recipeId']; // Add recipe ID to create a unique link
-                        echo "<a href='recipeDetail.php?id=".$recipeId."' class='cardLink'>"; // Wrap the card in a link
+                        $recipeId = $recipe['recipeId'];
+                        echo "<a href='recipeDetail.php?id=".$recipeId."' class='cardLink'>";
                         echo "<div class=\"card001\">";
                             echo "<img class=\"cardImg001\" src='..\phpFiles\\". $recipePfp. "' alt='".$recipeName."'>";
                             echo "<div class=\"container001\">";

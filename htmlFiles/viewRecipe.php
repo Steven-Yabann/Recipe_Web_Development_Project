@@ -37,7 +37,8 @@ if (isset($_SESSION['username'])) {
                     <h1>My Recipes</h1>
                     <h3>Welcome, <?php echo htmlspecialchars($userName); ?>!</h3>
                 </div>
-                
+                <div class="headlineImage">
+                </div>
             </div>
         </div>
 
@@ -46,7 +47,7 @@ if (isset($_SESSION['username'])) {
                 <div class="recipe-item">
                     <h2><?php echo htmlspecialchars($recipe['recipeName']); ?></h2>
                     <div class="links">
-                        <a href="recipeDetail.php?id=<?php echo $recipe['recipeId']; ?>" class="view-link">View Recipe</a>
+                        <a href="viewRecipe.php?id=<?php echo $recipe['recipeId']; ?>" class="view-link">View Recipe</a>
                         <a href="editRecipe.php?id=<?php echo $recipe['recipeId']; ?>" class="edit-link">Edit Recipe</a>
                     </div>
                 </div>
