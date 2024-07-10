@@ -40,6 +40,10 @@
                 <?php if($userCategory == 3){
                     echo "<li><a href='recipeSubmission.php'>Add recipe</a></li>";
                 }
+                ?>
+                <?php if($userCategory == 3){
+                    echo "<li><a href='viewRecipe.php'>View my recipes</a></li>";
+                }
                 ?> 
                 <?php if($userName){
                     echo "<a href='userProfilePage.php'><li class='userName'>$userName</li></a>";

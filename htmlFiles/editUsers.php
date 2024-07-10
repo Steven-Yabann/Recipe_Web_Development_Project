@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             'lastName' => ''
         ];
     } else {
-        $user['userId'] = $userId;  // Ensure userId is set
+        $user['userId'] = $userId;
     }
 }
 
@@ -51,7 +51,7 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <select name="userId" id="usernameSearch" onchange="this.form.submit()">
                 <option value="">Select a user</option>
                 <?php foreach ($users as $usernameSearch): ?>
-                    <option value="<?= htmlspecialchars($usernameSearch["userId"]) ?>" <?= isset($userId) && $userId == $usernameSearch["userId"] ? 'selected' : '' ?>>
+                    <option value="<?= htmlspecialchars($usernameSearch["userId"]) ?>" <?= isset($userName) && $userName == $usernameSearch["userId"] ? 'selected' : '' ?>>
                         <?= htmlspecialchars($usernameSearch["username"]) ?>
                     </option>
                 <?php endforeach; ?>
