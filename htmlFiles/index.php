@@ -44,48 +44,30 @@
     </section>
     
     <section id="recipes" class="foodCards">
-        <h1 class="recipeHeader">Top Recipes of the Day!</h1>
-        <div class="cardRow">   
-            <div class="card001">
-                <img class="cardImg001" src="..\photos\London Food Photographer Jenni Helin.jpeg" alt="Chinese noodles">
-                <div class="container001">
-                    <h4>Chinese noodles</h4>
-                </div>
-            </div>  
-            <div class="card001">
-                <img class="cardImg001" src="..\photos\Cozy Mushroom Soup.jpeg" alt="Mushroom soup">
-                <div class="container001">
-                    <h4>Mushroom Soup</h4>
-                </div>
-            </div> 
-            <div class="card001">
-                <img class="cardImg001" src="..\photos\Cook & Capture Food Styling.jpeg" alt="Chips and Barbequed Beef">
-                <div class="container001">
-                    <h4>Chips and Barbequed Beef</h4>
-                </div>
-            </div>
-        </div>
-        <div class="cardRow">
-            <div class="card001">
-                <img class="cardImg001" src="..\photos\Crispy Skin Salmon (Perfect Every Time!).jpeg" alt="Crispy Salmon">
-                <div class="container001">
-                    <h4>Crispy Salmon</h4>
-                </div>
-            </div>
-            <div class="card001">
-                <img class="cardImg001" src="..\photos\Premium Photo _ A bowl of food with a piece of meat on it.jpeg" alt="Pilau">
-                <div class="container001">
-                    <h4>African pilau</h4>
-                </div>
-            </div>
-            <div class="card001">
-                <img class="cardImg001" src="..\photos\Pizza toppings.jpeg" alt="Hawaiian pizza">
-                <div class="container001">
-                    <h4>Hawaiian pizza</h4>
-                </div>
-            </div>        
-        </div>
-    </section>
+    <h1 class="recipeHeader">Top Recipes of the Day!</h1>
+    <div class="cardRow">   
+        <?php
+            require '../phpFiles/recipeConn.php';
+            if ($recipesData->rowCount() > 0){
+                $recipes = $recipesData->fetchAll(PDO::FETCH_ASSOC);
+                foreach($recipes as $recipe){
+                    $recipePfp = $recipe['recipeImage'];
+                    $recipeName = $recipe['recipeName'];
+                    $recipeId = $recipe['recipeId']; // Add recipe ID to create a unique link
+                    echo "<a href='recipeDetail.php?id=".$recipeId."' class='cardLink'>"; // Wrap the card in a link
+                    echo "<div class=\"card001\">";
+                        echo "<img class=\"cardImg001\" src='..\phpFiles\\". $recipePfp. "' alt='".$recipeName."'>";
+                        echo "<div class=\"container001\">";
+                            echo "<h4>".$recipeName."</h4>";
+                        echo "</div>";
+                    echo "</div>";
+                    echo "</a>";
+                }
+            }
+        ?>  
+    </div>
+</section>
+
 
     <section class="custReviewSect">
         <h1>Customer Reviews</h1>

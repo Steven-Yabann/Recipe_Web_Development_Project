@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 // Check if the insertion was successful
                 if ($stmt->rowCount() > 0) {
                     echo "Recipe added successfully.";
-                    header("location: ..\htmlFiles\index.html");
+                    header("location: ..\htmlFiles\index.php");
                 } else {
                     echo "Error: Failed to add recipe.";
                 }
