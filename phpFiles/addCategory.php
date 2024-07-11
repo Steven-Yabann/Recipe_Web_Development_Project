@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Check if the insertion was successful
     if ($stmt->rowCount() > 0) {
         echo "Category added successfully.";
-        header("Location: ..\htmlFiles\index.html");
+        header("Location: ..\htmlFiles\index.php");
     } else {
         echo "Error: Failed to add category.";
     }

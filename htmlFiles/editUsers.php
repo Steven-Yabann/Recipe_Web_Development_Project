@@ -59,7 +59,7 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </form>
 
         <h2>Edit User Information</h2>
-        <form action="updateUsers.php" method="post">
+        <form action="../phpFiles/updateUsers.php" method="post">
             <input type="hidden" name="userId" value="<?= htmlspecialchars($user['userId']) ?>">
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" value="<?= htmlspecialchars($user['username']) ?>" required><br>

@@ -1,11 +1,10 @@
 <?php
-// Include your database connection file and ensure session is started
 require '../phpFiles/dbconnection.php';
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
-// Check if userID is set in session
+
 if (isset($_SESSION['username'])) {
     $userName = $_SESSION['username'];
 } else {
@@ -13,7 +12,7 @@ if (isset($_SESSION['username'])) {
     exit;
 }
 
-// Check if recipe ID is provided in the URL
+
 if (isset($_GET['id'])) {
     $recipeId = $_GET['id'];
     

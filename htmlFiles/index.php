@@ -55,14 +55,16 @@
                         $recipeName = $recipe['recipeName'];
                         $recipeId = $recipe['recipeId'];
                         echo "<a href='recipeDetail.php?id=".$recipeId."' class='cardLink'>";
-                        echo "<div class=\"card001\">";
-                            echo "<img class=\"cardImg001\" src='..\phpFiles\\". $recipePfp. "' alt='".$recipeName."'>";
-                            echo "<div class=\"container001\">";
-                                echo "<h4>".$recipeName."</h4>";
+                            echo "<div class=\"card001\">";
+                                echo "<img class=\"cardImg001\" src='..\phpFiles\\". $recipePfp. "' alt='".$recipeName."'>";
+                                echo "<div class=\"container001\">";
+                                    echo "<h4>".$recipeName."</h4>";
+                                echo "</div>";
                             echo "</div>";
-                        echo "</div>";
                         echo "</a>";
                     }
+                }else{
+                    echo "<h2>No Recipes Found</h2>";
                 }
             ?>  
         </div>

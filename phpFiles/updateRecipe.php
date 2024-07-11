@@ -12,13 +12,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $cookingSteps = htmlspecialchars($_POST['cookingSteps']);
 
     
-    $updateQuery = $pdo->prepare('UPDATE recipes SET recipeName = :recipeName, categoryName = :categoryName, ingredients = :ingredients, cookingSteps = :cookingSteps WHERE recipeId = :recipeId');
+    $updateQuery = $pdo->prepare('UPDATE recipes SET recipeName = ?, categoryName = ?, ingredients = ?, cookingSteps = ? WHERE recipeId = ?');
     $success = $updateQuery->execute([
-        'recipeName' => $recipeName,
-        'categoryName' => $categoryName,
-        'ingredients' => $ingredients,
-        'cookingSteps' => $cookingSteps,
-        'recipeId' => $recipeId
+        $recipeName,
+        $categoryName,
+        $ingredients,
+        $cookingSteps,
+        $recipeId
     ]);
 
     if ($success) {

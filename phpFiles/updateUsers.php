@@ -20,7 +20,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     if($stmt-> rowCount()){
         echo 'User information updated successfully.';
-        header('Location: dispUsers.php');
+        header('Location: ../htmlFiles/dispUsers.php');
     }else{
         echo 'Failed to update user information.';
     }

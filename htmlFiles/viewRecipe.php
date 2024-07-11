@@ -26,6 +26,8 @@ if (isset($_SESSION['username'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Recipes</title>
     <link rel="stylesheet" href="../cssSheets/viewRecipeStyles.css">
+    <link rel="stylesheet" href="..\cssSheets\headerSection.css">
+    <link rel="stylesheet" href="..\cssSheets\footerSection.css">
 </head>
 <body>
     <?php include 'headerSection.php'; ?>
@@ -47,7 +49,7 @@ if (isset($_SESSION['username'])) {
                 <div class="recipe-item">
                     <h2><?php echo htmlspecialchars($recipe['recipeName']); ?></h2>
                     <div class="links">
-                        <a href="viewRecipe.php?id=<?php echo $recipe['recipeId']; ?>" class="view-link">View Recipe</a>
+                        <a href="recipeDetail.php?id=<?php echo $recipe['recipeId']; ?>" class="view-link">View Recipe</a>
                         <a href="editRecipe.php?id=<?php echo $recipe['recipeId']; ?>" class="edit-link">Edit Recipe</a>
                     </div>
                 </div>
