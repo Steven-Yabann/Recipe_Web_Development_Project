@@ -22,8 +22,9 @@
                 <h3>"Flavor Fusion: Unleash Culinary Creativity with Our Delectable Recipes
                     Dive into a World of Irresistible Flavors and Inspired Cooking Adventures!"</h3>
                     <form  class="searchForm">
-                        <input type="text" id="recipeSearch" placeholder="Search for recipe" >
-                        <input type="submit" name="search" id="search">
+                        <a href="#recipes">
+                            <button type="button" id="recipeButton">View Recipes</button>
+                        </a>
                     </form>
             </div>
             <div class="headlineImage">
