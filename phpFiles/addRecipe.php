@@ -1,11 +1,17 @@
 <?php
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+$userName = isset($_SESSION['username']) ? $_SESSION['username'] : null;
+
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Include the database connection file
     include_once "dbconnection.php";
 
     // Retrieve form data
     $recipeName = $_POST["recipeName"];
-    $recipeOwner = $_POST["recipeOwner"];
+    $recipeOwner = $userName;
     $ingredients = $_POST["ingredients"];
     $cookingSteps = $_POST["cookingSteps"];
     $category = $_POST["category"];

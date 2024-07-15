@@ -22,9 +22,6 @@ require "../phpFiles/categoryConn.php";
             <label for="recipeName">Recipe Name:</label>
             <input type="text" id="recipeName" name="recipeName" placeholder="Recipe Name" required>
             
-            <label for="recipeOwner">Recipe Owner Username</label>
-            <input type="text" name="recipeOwner" id="recipeOwner" placeholder="Recipe Owner Name" required>
-            
             <label for="ingredients">Ingredients:</label>
             <textarea id="ingredients" name="ingredients" placeholder="Ingredients" required></textarea>
             
